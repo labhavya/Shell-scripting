@@ -1,5 +1,5 @@
 #!/bin/bash
-NUMBER1: $1
+NUMBER1=$1
 if [ $NUMBER1 -gt 100]
 # -gt,-lt, -eq, -ge, -le
 then
