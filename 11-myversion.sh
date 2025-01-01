@@ -5,12 +5,5 @@ then
     echo "ERROR:: user doens't have permission to install"
     exit 1
 fi 
-
-dnf install mysql -y
-if [ $? -ne 0 ]
-then
-    echo " ERROR:: mysql installation failed...................."
-    exit
-else
-    echo "mysql installation successful......"
-fi
+RESULT=$(dnf list installed | grep mysql)
+echo "$RESULT"
