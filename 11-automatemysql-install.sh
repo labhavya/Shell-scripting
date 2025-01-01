@@ -9,7 +9,7 @@ dnf list installed | grep mysql-server
 if [ $? -ne 0 ]
 then
     echo "going to install mysql.........."
-    dnf install mysql-server1 -y
+    dnf install mysql-server -y
     if [ $? -eq 0 ]
     then 
         echo "mysql installed successfully"
