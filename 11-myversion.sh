@@ -8,7 +8,7 @@ fi
 dnf list installed | grep mysql
 if [ $? -ne 0 ]
 then
-    dns install mysql-server -y
+    dnf install mysql-server -y
     exit 1
 else
     echo "mysql is already installed"
