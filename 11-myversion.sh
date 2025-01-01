@@ -11,5 +11,5 @@ then
     dns install mysql -y
     exit 1
 else
-    ehco "mysql is already installed"
+    echo "mysql is already installed"
 fi
