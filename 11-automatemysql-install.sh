@@ -8,8 +8,15 @@ fi
 dnf list installed | grep mysql
 if [ $? -ne 0 ]
 then
+    echo "going to install mysql.........."
     dnf install mysql-server -y
-    exit 1
+    if [ $? -eq 0 ]
+    then 
+        echo "mysql installed successfully"
+        exit 1
+    else 
+        echo "mysql installation failed"
+    fi
 else
     echo "mysql is already installed"
 fi
