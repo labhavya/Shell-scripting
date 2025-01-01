@@ -5,5 +5,11 @@ then
     echo "ERROR:: user doens't have permission to install"
     exit 1
 fi 
-RESULT=$(dnf list installed | grep mysql)
-echo "$RESULT"
+dnf list installed | grep mysql
+if [ $? -ne 0 ]
+then
+    dns install mysql -y
+    exit 1
+else
+    ehco "mysql is already installed"
+fi
