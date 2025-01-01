@@ -5,7 +5,7 @@ then
     echo "ERROR:: user doens't have permission to install"
     exit 1
 fi 
-dnf list installed | grep mysql
+dnf list installed | grep mysql-server
 if [ $? -ne 0 ]
 then
     echo "going to install mysql.........."
