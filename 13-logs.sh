@@ -3,6 +3,7 @@ USER=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
+N="\e[0m"
 LOGS_FOLDER="/var/log/shellscript-logs"
 LOG_FILE=$(echo $0 |cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
@@ -17,10 +18,10 @@ fi
 VALIDATE() {
     if [ $1 -eq 0 ]
     then 
-        echo -e "$2....$G success"
+        echo -e "$2....$G success $N"
         
     else 
-        echo -e "$2....$R failed"
+        echo -e "$2....$R failed $N"
         exit 1
     fi
 }
@@ -32,7 +33,7 @@ then
     VALIDATE $? "MYSQL INSTALL IS"
     
 else
-    echo -e "mysql is already ... $Y installed"
+    echo -e "mysql is already ... $Y installed $N"
 fi
 dnf list installed git
 if [ $? -ne 0 ]
@@ -41,5 +42,5 @@ then
      dnf install git -y &>>$LOG_FILE_NAME
      VALIDATE $? "GIT INSTALL IS"
 else
-    echo -e "git is already... $Y installed"
+    echo -e "git is already... $Y installed $N"
 fi
