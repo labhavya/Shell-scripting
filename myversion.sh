@@ -5,8 +5,7 @@ then
     echo "ERROR:: user doens't have permission to install"
     exit 1
 fi 
-INSTALL $1
-INSTALL() 
+INSTALLATION () 
 {
         dnf list installed $1
         if [ $? -ne 0 ]
@@ -27,4 +26,5 @@ VALIDATE() {
         exit 1
     fi
 }
+INSTALLATION $1
 
