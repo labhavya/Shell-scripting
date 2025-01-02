@@ -11,18 +11,19 @@ INSTALLATION ()
         if [ $? -ne 0 ]
         then
             dnf install $1 -y
-            VALIDATE $? $1
+            VALIDATE $?
         else
             echo "$1 is already installed"
         fi
 }
-VALIDATE() {
+VALIDATE() 
+{
     if [ $2 -eq 0 ]
     then 
-        echo "$3 install is success"
+        echo "$1 install is success"
         
     else 
-        echo "$3 install is failed"
+        echo "$1 install is failed"
         exit 1
     fi
 }
