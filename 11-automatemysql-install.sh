@@ -13,7 +13,7 @@ then
     if [ $? -eq 0 ]
     then 
         echo "mysql installed successfully"
-        exit 1
+        
     else 
         echo "mysql installation failed"
         exit 1
