@@ -34,3 +34,11 @@ then
 else
     echo "git is already installed"
 fi
+
+INSTALL() {
+dnf list installed $1
+if [ $? -ne 0 ]
+then
+dnf install $1 -y
+VALIDATE $? $1
+}
