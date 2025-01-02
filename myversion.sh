@@ -13,7 +13,9 @@ then
      VALIDATE $? $1
 else
     echo "$1 is already installed"
+fi
 }
+
 VALIDATE() {
     if [ $2 -eq 0 ]
     then 
