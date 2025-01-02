@@ -5,6 +5,7 @@ then
     echo "ERROR:: user doens't have permission to install"
     exit 1
 fi 
+INSTALL $1
 INSTALL() 
 {
         dnf list installed $1
@@ -16,7 +17,6 @@ INSTALL()
             echo "$1 is already installed"
         fi
 }
-
 VALIDATE() {
     if [ $2 -eq 0 ]
     then 
