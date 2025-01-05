@@ -43,5 +43,6 @@ echo "Fiels to be deleted is:: $FILES_TO_DELETE"
 
 for everyfile in $FILES_TO_DELETE
 do
+   echo -e "deleting file $everyfile"
 rm -rf $everyfile
 done
