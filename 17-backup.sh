@@ -36,3 +36,8 @@ fi
 FILES=$(find $SOURCEDIR -name "*.log" -mtime +$DAYS)
 echo "printing files:: $FILES"
 
+if [ -n "$FILES" ]  #if files not empty
+   then
+   echo "no files found older than $R $DAYS"
+   exit 1
+fi
