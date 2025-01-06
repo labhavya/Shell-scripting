@@ -36,7 +36,7 @@ fi
 FILES=$(find $SOURCEDIR -name "*.log" -mtime +$DAYS)
 echo "printing files:: $FILES"
 
-if [ -n "$FILES" ]  #if files not empty
+if [ ! -n "$FILES" ]  #true if there are files to zip
    then
    echo -e "no files found older than $R $DAYS"
    exit 1
