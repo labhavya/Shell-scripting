@@ -10,6 +10,7 @@ mkdir -p /home/ec2-user/shellscript-logs
 
 SOURCEDIR=$1
 DESTDIR=$2
+DAYS=${3:-14}    # if user is not providing number of days, we are taking 14 as default
 USAGE(){
        echo -e "$R USAGE:: $N..sh <sourcedir> <destdir> ,number of days (optional)"
        exit 1
@@ -31,3 +32,7 @@ if [ ! -d $DESTDIR ]
    echo -e " $N DestinationDIR $R $DESTDIR.. $N doesn't exists"
    exit 1
 fi
+
+FILES=$(find $SOURCEDIR -name "*.log" -mtime +$DAYS)
+echo "printing files:: $FILES"
+
