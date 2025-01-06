@@ -38,6 +38,6 @@ echo "printing files:: $FILES"
 
 if [ -n "$FILES" ]  #if files not empty
    then
-   echo "no files found older than $R $DAYS"
+   echo -e "no files found older than $R $DAYS"
    exit 1
 fi
