@@ -22,12 +22,12 @@ fi
 
 if [ ! -d $SOURCEDIR  ]   # if soruce directory doesn't exist; -d $SOURCEDIR the source directory exists.
    then
-   echo -e " $R SOURCEDIR $SOURCEDIR.. $N doesn't exists"
+   echo -e " $N SOURCEDIR $R $SOURCEDIR.. $N doesn't exists"
    exit 1
 fi
 
 if [ ! -d $DESTDIR ]
    then
-   echo -e " $R DestinationDIR $DESTDIR.. $N doesn't exists"
+   echo -e " $N DestinationDIR $R $DESTDIR.. $N doesn't exists"
    exit 1
 fi
