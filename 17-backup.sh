@@ -52,7 +52,6 @@ if [ -n "$FILES" ]  #true if there are files to zip
             else
                echo -e "$R FAILED ....$N to create ZIP file"
                exit 1
-
             fi
    else
         echo -e "no files found older than $R $DAYS"
