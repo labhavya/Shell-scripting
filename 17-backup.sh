@@ -11,7 +11,7 @@ mkdir -p /home/ec2-user/shellscript-logs
 SOURCEDIR=$1
 DESTDIR=$2
 USAGE(){
-       echo "$R USAGE:: $N..sh <sourcedir> <destdir> ,number of days (optional)"
+       echo -e "$R USAGE:: $N..sh <sourcedir> <destdir> ,number of days (optional)"
        exit 1
 
 }
