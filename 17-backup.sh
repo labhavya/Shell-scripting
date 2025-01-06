@@ -44,11 +44,11 @@ if [ -n "$FILES" ]  #true if there are files to zip
             if [ -f "$ZIP_FILE" ]
             then
                echo -e "$G successfully $N created zip file"
-               while read -r filepath
+               while read -r filepath   #Here file path is variable to save each file.
                 do
                     rm -rf $filepath
-                    echo "Deleted file:: $filepath
-               done <<<$FILES
+                    echo "Deleted file:: $filepath"
+               done <<< $FILES
             else
                echo -e "$R FAILED ....$N to create ZIP file"
                exit 1
