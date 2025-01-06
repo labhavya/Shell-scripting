@@ -34,10 +34,13 @@ if [ ! -d $DESTDIR ]
 fi
 
 FILES=$(find $SOURCEDIR -name "*.log" -mtime +$DAYS)
-echo "printing files:: $FILES"
 
-if [ ! -n "$FILES" ]  #true if there are files to zip
+if [ -n "$FILES" ]  #true if there are files to zip
    then
-   echo -e "no files found older than $R $DAYS"
-   exit 1
+        echo "printing files:: $FILES"
+        ZIP_FILE="$DESTDIR/app-logs-$TIMESTAMP.zip"
+        find $SOURCEDIR -name "*.log" -mtime +$DAYS | zip @ $ZIP_FILE
+   else
+        echo -e "no files found older than $R $DAYS"
+        exit 1
 fi
