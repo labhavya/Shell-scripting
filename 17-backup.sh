@@ -19,4 +19,15 @@ if [ $# -lt 2 ]
    then
    USAGE
 fi
-echo "proceeding further"
+
+if [ ! -d $SOURCEDIR  ]   # if soruce directory doesn't exist; -d $SOURCEDIR the source directory exists.
+   then
+   echo " $R SOURCEDIR $SOURCEDIR.. $N doesn't exists"
+   exit 1
+fi
+
+if [ ! -d $DESTDIR ]
+   then
+   echo " $R DestinationDIR $DESTDIR.. $N doesn't exists"
+   exit 1
+fi
