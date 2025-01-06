@@ -33,6 +33,7 @@ if [ ! -d $DESTDIR ]
    exit 1
 fi
 
+echo -e "$G Started $N executing the script at : $TIMESTAMP" &>>$LOG_FILE_NAME
 FILES=$(find $SOURCEDIR -name "*.log" -mtime +$DAYS)
 
 if [ -n "$FILES" ]  #true if there are files to zip
@@ -40,6 +41,19 @@ if [ -n "$FILES" ]  #true if there are files to zip
         echo "printing files:: $FILES"
         ZIP_FILE="$DESTDIR/app-logs-$TIMESTAMP.zip"
         find $SOURCEDIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+            if [ -f "$ZIP_FILE" ]
+            then
+               echo -e "$G successfully $N created zip file"
+               while read -r filepath
+                do
+                    rm -rf $filepath
+                    echo "Deleted file:: $filepath
+               done <<<$FILES
+            else
+               echo -e "$R FAILED ....$N to create ZIP file"
+               exit 1
+
+            fi
    else
         echo -e "no files found older than $R $DAYS"
         exit 1
