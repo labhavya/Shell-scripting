@@ -25,7 +25,7 @@ fi
 
 if [ ! -d $SOURCEDIR  ]   # if soruce directory doesn't exist; -d $SOURCEDIR the source directory exists.
    then
-   echo -e " $N SOURCEDIR $R $SOURCEDIR.. $N doesn't exists"
+   echo -e " $N SOURCEDIR $R.. $SOURCEDIR.. $N doesn't exists"
    exit 1
 fi
 
@@ -45,7 +45,7 @@ if [ -n "$FILES" ]  #true if there are files to zip
         find $SOURCEDIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
             if [ -f "$ZIP_FILE" ]
             then
-               echo -e "$G successfully $N created zip file"
+               echo -e " $G successfully $N created zip file "
                while read -r filepath   #Here file path is variable to save each file.
                 do
                     rm -rf $filepath
