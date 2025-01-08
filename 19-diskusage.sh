@@ -5,8 +5,8 @@ while read -r line
 do
   USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)  # -F here is filed separator.
   PARTITION=$(echo $line | awk -F " " '{print $NF}')
-  
-  echo "partiiton:$PARTITION; Usage:$USAGE"
-
-  
-done <<<$DISKUSAGE
+  if [ $USAGE -gt $DISK_THRESHOLD ] 
+   then 
+      echo "partiiton:$PARTITION; Usage:$USAGE"
+  fi
+  done <<<$DISKUSAGE
