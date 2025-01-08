@@ -6,7 +6,7 @@ done < 16-delete-old-logs.sh
 
 echo "entering into second while loop"
 
-FILE =16-delete-old-logs.sh
+FILE=16-delete-old-logs.sh
 while read -r line
 do
 echo "$line"
