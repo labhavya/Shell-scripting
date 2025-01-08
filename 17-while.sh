@@ -14,4 +14,4 @@ while read -r file
 do
    echo "deleting file......$file"
    rm -rf $file
-done < "$FILES_TO_DELETE"
+done <<< $FILES_TO_DELETE
