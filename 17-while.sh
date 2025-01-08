@@ -6,8 +6,12 @@ done < 16-delete-old-logs.sh
 
 echo "entering into second while loop"
 
-FILE=16-delete-old-logs.sh
-while read -r line
+SOURCE_DIR="/home/ec2-user/app-logs"
+
+FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+echo "Fiels to be deleted is:: $FILES_TO_DELETE" 
+while read -r file
 do
-echo "$line"
-done < "$FILE"
+   echo "deleting file......$file"
+   rm -rf $file
+done < "$FILES_TO_DELETE"
